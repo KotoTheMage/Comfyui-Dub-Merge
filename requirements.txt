@@ -1,0 +1,23 @@
+numpy>=1.24
+soundfile>=0.12
+
+# torch / torchaudio are provided by ComfyUI itself (no need to install).
+#
+# scipy is also already a ComfyUI dependency - the centre-extraction engine
+# uses it for zero-phase band limiting when present, and falls back to
+# ffmpeg's highpass/lowpass filters otherwise.
+#
+# OPTIONAL - Demucs ML voice separation (isolation_engine = auto / demucs):
+#   pip install demucs
+# When installed, "auto" uses neural vocals/background separation (model
+# weights are downloaded on first use, ~80-160 MB; GPU strongly recommended
+# for long tracks).  Without it, "auto" falls back to ffmpeg centre
+# extraction.  Alternatively connect your own background track (UVR, demucs
+# CLI, DAW export) to the background_audio input - no extra deps needed.
+#
+# An ffmpeg binary on PATH is required for:
+#   - video sources (mp4/mkv/webm/mov/...), http(s) URLs
+#   - m4a/aac/wma decode, mp3 export
+#   - the centre-extraction voice isolation engine
+# Windows tip: install ffmpeg, or copy ffmpeg.exe + ffprobe.exe into the
+# "bin" folder of this node pack - it is added to PATH automatically.

@@ -1,0 +1,59 @@
+{
+  "1": {
+    "class_type": "DubLoadMedia",
+    "inputs": {
+      "media_path": "C:/path/to/full_track.mp4"
+    }
+  },
+  "2": {
+    "class_type": "DubMergeTakes",
+    "inputs": {
+      "audio": [
+        "1",
+        0
+      ],
+      "takes_folder": "C:/path/to/translated_takes",
+      "extensions": ".flac",
+      "recursive": false,
+      "timestamp_mode": "start",
+      "window_mode": "until_next",
+      "separation": "voice_isolation",
+      "isolation_engine": "auto",
+      "voice_low_hz": 100.0,
+      "voice_high_hz": 12000.0,
+      "demucs_model": "htdemucs",
+      "fade_ms": 10,
+      "gain_db": 0.0,
+      "silence_db": -50.0,
+      "tail_pad_ms": 200.0,
+      "overflow": "extend",
+      "mode": "merge",
+      "queue_overlaps": true,
+      "background_only": false,
+      "timeline_edits": "",
+      "ambient_db": -12.0,
+      "move_fails": true
+    }
+  },
+  "3": {
+    "class_type": "SaveAudio",
+    "inputs": {
+      "audio": [
+        "2",
+        0
+      ],
+      "filename_prefix": "audio/DubMerge"
+    }
+  },
+  "4": {
+    "class_type": "SaveText",
+    "inputs": {
+      "text": [
+        "2",
+        1
+      ],
+      "filename_prefix": "DubMerge/report",
+      "format": "txt"
+    }
+  }
+}
