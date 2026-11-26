@@ -1,10 +1,10 @@
 # ComfyUI Dub Merge
 
-Merge **translated take files** into a **full track** (movie audio, podcast,
+Merge **translated files** into a **full track** (movie audio, podcast,
 music bed...) directly inside ComfyUI.  With the default **voice isolation**
-the original is first split into **voice + background** (Demucs ML
+the original track is first split into **voice + background** (Demucs ML
 separation when installed, ffmpeg centre extraction otherwise, or your own
-background track); the winning translated take replaces only the **voice**
+background track); if there are several files with the same name, the latest take wins, replaces only the **voice**
 at each take's timestamp and the untouched **background** is added back
 afterwards - so the background never shifts, ducks or restarts under the
 dubbed parts.  For ambience-heavy scenes, `background_only` goes one step
@@ -12,7 +12,7 @@ further: the separated voice stem is discarded entirely and the dubs are
 merged with the background alone, so ambience that leaked into it can never
 duck under the dubs.
 
-Take files follow this naming convention:
+Take files follow this ComfyUI naming convention:
 
 ```
 HH.MM.SS.mmm_TTTTT.flac
